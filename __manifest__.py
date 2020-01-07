@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "npwp_partner",
+    'name': "NPWP",
 
     'summary': """
         Addon untuk menambah NPWP""",
@@ -23,6 +23,7 @@
                 'base',
                 'contacts',
                 'account',
+                'sale',
                 ],
 
     # always loaded
