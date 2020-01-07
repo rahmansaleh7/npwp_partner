@@ -22,6 +22,7 @@
     'depends': [
                 'base',
                 'contacts',
+                'account',
                 ],
 
     # always loaded

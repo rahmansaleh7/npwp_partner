@@ -8,3 +8,5 @@ class Partner(models.Model):
 
 
 	npwp = fields.Char(string="NPWP",)
+	sale_order_ids = fields.One2many(string="Sale Orders",
+									)

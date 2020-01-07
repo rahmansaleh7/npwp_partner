@@ -2,13 +2,27 @@
   <data>
 
     <!-- Inherit Di Form -->
-    <record model="ir.ui.view" id="npwp_partner_view">
+    <!-- <record model="ir.ui.view" id="npwp_partner_view">
       <field name="name">npwp_partner_view</field>
       <field name="model">res.partner</field>
       <field name="inherit_id" ref="base.view_partner_form" />
 
       <field name="arch" type="xml">
         <field name="vat" position="after">
+          <field name="npwp" />
+        </field>
+      </field>
+    </record> -->
+
+
+    <!-- Inherit Di Notebook (dibawah fiscal information) -->
+    <record model="ir.ui.view" id="npwp_partner_view">
+      <field name="name">npwp_partner_view</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="account.view_partner_property_form" />
+
+      <field name="arch" type="xml">
+        <field name="property_account_position_id" position="after">
           <field name="npwp" />
         </field>
       </field>
@@ -44,6 +58,30 @@
         </span>
        </xpath>
 
+      </field>
+    </record>
+
+    <!-- Inherit Di Search -->
+    <record model="ir.ui.view" id="npwp_partner_search">
+      <field name="name">npwp_partner_search</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_res_partner_filter" />
+
+      <field name="arch" type="xml">
+        <search position="inside">
+          <field name="npwp" />
+
+          <separator />
+          
+          <filter name="punya_npwp"
+                  string="Punya NPWP"
+                  domain="[('npwp','!=',False)]" />
+
+          <filter name="non_npwp"
+                  string="Tidak Punya NPWP"
+                  domain="[('npwp','=',False)]" />
+
+        </search>
       </field>
     </record>
 
